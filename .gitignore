@@ -1,0 +1,11 @@
+# Files and directories created by pub
+/Delivery.API/delivery_api/.dart_tool
+/Delivery.API/delivery_api/.packages
+
+# Conventional directory for build outputs
+/Delivery.API/delivery_api/build
+
+# Directory created by dartdoc
+Delivery.API/delivery_api/doc/api
+
+Delivery.API/delivery_api/mysql_data

@@ -1,0 +1,1 @@
+[{"type":{"name":"MenuRouters","import":"package:delivery_api/modules/menu/menu_routers.dart"},"typeImpl":{"name":"MenuRouters","import":"package:delivery_api/modules/menu/menu_routers.dart"},"isAsync":false,"preResolve":false,"injectableType":0,"dependsOn":[],"environments":[],"dependencies":[],"constructorName":"","isAbstract":false}]
