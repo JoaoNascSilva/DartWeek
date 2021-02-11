@@ -1,4 +1,5 @@
 import 'package:delivery_api/modules/menu/menu_routers.dart';
+import 'package:delivery_api/modules/orders/orders_routers.dart';
 import 'package:delivery_api/modules/users/users_router.dart';
 import 'package:shelf_router/src/router.dart';
 
@@ -9,6 +10,7 @@ class RouterConfigure {
   final List<IRouterConfigure> routers = [
     UsersRouter(),
     MenuRouters(),
+    OrdersRouters(),
   ];
 
   RouterConfigure(this._router);

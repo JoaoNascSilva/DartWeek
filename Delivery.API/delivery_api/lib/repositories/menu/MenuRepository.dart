@@ -55,4 +55,10 @@ class Menurepository implements IMenuRepository {
       await connection?.close();
     }
   }
+
+  @override
+  Future<List<Menu>> findByDescription() {
+    // TODO: implement findByDescription
+    throw UnimplementedError();
+  }
 }
