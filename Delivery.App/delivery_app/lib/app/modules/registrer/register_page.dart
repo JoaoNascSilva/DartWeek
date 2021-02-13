@@ -1,18 +1,19 @@
 import 'package:delivery_app/app/components/pizza_delivery_button.dart';
 import 'package:delivery_app/app/components/pizza_delivery_input.dart';
-import 'package:delivery_app/app/modules/registrer/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 
-import 'login_controller.dart';
+import 'register_controller.dart';
 
-class LoginPage extends GetView<LoginController> {
-  static const String ROUTE_PAGE = '/login';
+class RegisterPage extends GetView<RegisterController> {
+  static const String ROUTE_PAGE = '/register';
 
+  final formKey = GlobalKey<FormState>();
+  final nameEditingController = TextEditingController();
   final emailEditingController = TextEditingController();
   final passwordEditingController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+  final confirmedPasswordEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,18 @@ class LoginPage extends GetView<LoginController> {
                   child: Column(
                     children: [
                       PizzaDeliveryInput(
-                        controller: emailEditingController,
+                        //controller: emailEditingController,
+                        label: 'Nome',
+                        validator: (String value) {
+                          if ((value.length < 3 || value.length >= 60) ||
+                              value.isBlank)
+                            return 'Campo [Nome] deve conter entre 3 e 60 caracteres.';
+                          return null;
+                        },
+                        suffixIconsOnPressed: () {},
+                      ),
+                      PizzaDeliveryInput(
+                        controller: nameEditingController,
                         label: 'E-mail',
                         validator: (String value) {
                           if (value == null || value.isBlank || !value.isEmail)
@@ -49,7 +61,7 @@ class LoginPage extends GetView<LoginController> {
                           label: 'Senha',
                           suffixIcon: Icon(FontAwesome.key),
                           suffixIconsOnPressed: controller.showHidePassword,
-                          obscureText: controller.obscureText,
+                          obscureText: controller.obscureTextPassword,
                           validator: (String value) {
                             if (value.length < 6)
                               return 'Senha deve conter no minimo 6 caracteres.';
@@ -57,32 +69,47 @@ class LoginPage extends GetView<LoginController> {
                           },
                         ),
                       ),
-                      SizedBox(height: 20),
-                      PizzaDeliveryButton(
-                        onPressed: () {
-                          if (formKey.currentState.validate()) {
-                            controller.login(
-                              emailEditingController.text,
-                              passwordEditingController.text,
-                            );
-                          }
-                        },
-                        width: Get.mediaQuery.size.width * 0.8,
-                        height: 50,
-                        buttomColor: Get.theme.primaryColor,
-                        label: 'LogIn',
-                        labelSize: 20,
-                        labelColor: Colors.white,
+                      Obx(
+                        () => PizzaDeliveryInput(
+                          controller: confirmedPasswordEditingController,
+                          label: 'Confirmar Senha',
+                          suffixIcon: Icon(FontAwesome.key),
+                          suffixIconsOnPressed:
+                              controller.showHideConfirmePassword,
+                          obscureText: controller.obscureTextConfirmPassword,
+                          validator: (String value) {
+                            if (value != passwordEditingController.text)
+                              return 'Senha deve conter no minimo 6 caracteres.';
+                            return null;
+                          },
+                        ),
                       ),
                       SizedBox(height: 20),
                       PizzaDeliveryButton(
-                        onPressed: () => Get.toNamed(RegisterPage.ROUTE_PAGE),
+                        width: Get.mediaQuery.size.width * 0.8,
+                        height: 50,
+                        buttomColor: Get.theme.primaryColor,
+                        label: 'Salvar ',
+                        labelSize: 20,
+                        labelColor: Colors.white,
+                        onPressed: () {
+                          if (formKey.currentState.validate()) {
+                            final name = nameEditingController.text;
+                            final email = emailEditingController.text;
+                            final password = passwordEditingController.text;
+                            controller.registerUser(name, email, password);
+                          }
+                        },
+                      ),
+                      SizedBox(height: 20),
+                      PizzaDeliveryButton(
                         buttomColor: Colors.orange[400],
                         height: 50,
-                        label: 'Cadatre-se',
+                        label: 'Voltar',
                         labelColor: Colors.white,
                         labelSize: 20,
                         width: Get.mediaQuery.size.width * 0.80,
+                        onPressed: () => Get.back(),
                       ),
                     ],
                   ),

@@ -18,6 +18,7 @@ class SplashController extends GetxController {
 
   Future<void> checkLogin() async {
     final sharedPrefences = await SharedPreferences.getInstance();
+    sharedPrefences.clear();
     if (sharedPrefences.containsKey('user')) {
       //Direcionar para Home
       _userLogged(UserLogged.authenticate); //ScalladClass
