@@ -1,7 +1,7 @@
 import 'package:delivery_app/app/Helpers/loader_mixin.dart';
 import 'package:delivery_app/app/Helpers/messages_mixin.dart';
 import 'package:delivery_app/app/Helpers/rest_client.dart';
-import 'package:delivery_app/app/repositpories/user_repository.dart';
+import 'package:delivery_app/app/repositories/user_repository.dart';
 import 'package:delivery_app/app/view_models/register_user_input_model.dart';
 import 'package:get/get.dart';
 

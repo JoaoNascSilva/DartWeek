@@ -2,6 +2,8 @@ import 'package:delivery_app/app/modules/home/home_bidings.dart';
 import 'package:delivery_app/app/modules/home/home_page.dart';
 import 'package:delivery_app/app/modules/login/login_bindings.dart';
 import 'package:delivery_app/app/modules/login/login_page.dart';
+import 'package:delivery_app/app/modules/orders/orders_bindings.dart';
+import 'package:delivery_app/app/modules/orders/orders_page.dart';
 import 'package:delivery_app/app/modules/registrer/register_bindings.dart';
 import 'package:delivery_app/app/modules/registrer/register_page.dart';
 import 'package:delivery_app/app/modules/splash/splash_bindings.dart';
@@ -56,6 +58,11 @@ class UIConfig {
       name: RegisterPage.ROUTE_PAGE,
       page: () => RegisterPage(),
       binding: RegisterBindings(),
+    ),
+    GetPage(
+      name: OrdersPage.ROUTE_PAGE,
+      page: () => OrdersPage(),
+      binding: OrdersBindings(),
     ),
   ];
 }

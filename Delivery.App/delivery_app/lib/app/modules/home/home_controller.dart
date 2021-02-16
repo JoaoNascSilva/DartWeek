@@ -1,6 +1,6 @@
 import 'package:delivery_app/app/modules/menu/menu_controller.dart';
 import 'package:delivery_app/app/modules/menu/menu_page.dart';
-import 'package:delivery_app/app/repositpories/menu_repository.dart';
+import 'package:delivery_app/app/repositories/menu_repository.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 

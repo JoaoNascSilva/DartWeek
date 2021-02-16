@@ -2,7 +2,7 @@ import 'package:delivery_app/app/Helpers/loader_mixin.dart';
 import 'package:delivery_app/app/Helpers/messages_mixin.dart';
 import 'package:delivery_app/app/Helpers/rest_client.dart';
 import 'package:delivery_app/app/modules/home/home_page.dart';
-import 'package:delivery_app/app/repositpories/user_repository.dart';
+import 'package:delivery_app/app/repositories/user_repository.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
